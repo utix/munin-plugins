@@ -1,0 +1,27 @@
+#!/bin/sh
+case $1 in
+config)
+cat <<'EOM'
+graph_peroid 20
+graph_category sensors
+graph_title Temperatures
+graph_vlabel Celsius
+EOM
+echo -n graph_order
+for cpu in `acpi -t|cut -d':' -f1|cut -d' ' -f2` ;do
+echo -n " CPU_"$cpu
+done
+echo ""
+
+for cpu in `acpi -t|cut -d':' -f1|cut -d' ' -f2` ;do
+echo CPU_$cpu.label CPU $cpu
+done
+exit 0;;
+esac
+
+acpi -t|while read line; do
+t=` echo $line | grep "[[:digit:]]\{2\}.[[:digit:]]" -o`
+i=` echo $line | cut -d':' -f1|cut -d' ' -f2`
+echo  "CPU_$i".value  $t
+done
+
