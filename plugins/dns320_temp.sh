@@ -1,4 +1,33 @@
 #!/ffp/bin/sh
+
+: <<=cut
+
+=head1 NAME
+
+temp - Munin plugin to monitor the internal temperature of DNS 320
+
+=head1 APPLICABLE SYSTEMS
+
+Any DNS 320 with funplug installed (should work with other DNS like 323 not tested)
+
+=head1 CONFIGURATION
+
+This plugin needs root privileges
+
+=head1 INTERPRETATION
+
+The temperature in degree celsius for case, and both hard disks
+
+=head1 AUTHOR
+
+Copyright (C) 2015 Aurelien LAJOIE, Utix
+
+=head1 LICENSE
+
+GPLv2
+
+=cut
+
 case $1 in
 config)
 cat <<'EOM'
