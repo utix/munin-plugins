@@ -36,7 +36,7 @@ graph_category sensors
 graph_title Temperatures
 graph_vlabel Celsius
 graph_order system hda hdb
-sytem.label System
+system.label System
 hda.label Disk A
 hdb.label Disk B
 EOM
